@@ -4,7 +4,6 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import CustomForm from "../components/CustomForm";
 import EditForm from "../components/EditForm";
 import TaskList from "../components/TaskList";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [tasks, setTasks] = useLocalStorage("react-todo.tasks", []);

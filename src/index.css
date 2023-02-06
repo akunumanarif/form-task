@@ -115,6 +115,14 @@ body {
   color: transparent;
 }
 
+
+.form-wrapper{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+
 h1 {
   font-size: calc(var(--_size) * 1.3);
   text-align: center;

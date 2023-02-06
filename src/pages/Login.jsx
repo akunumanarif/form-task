@@ -1,11 +1,4 @@
 import React from "react";
-import {
-  MDBContainer,
-  MDBInput,
-  MDBCheckbox,
-  MDBBtn,
-  MDBIcon,
-} from "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -26,36 +19,50 @@ const Login = ({ auth }) => {
     navigate("/");
   };
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50 justifyContent-center">
+    <div className="form-wrapper ">
       <form onSubmit={handleSubmit(handleLogin)}>
-        <MDBInput
-          placeholder="email"
-          type="email"
-          {...register("email", { required: true })}
-        />
-        {errors.email && <ErrorMsg message="Email sudah disediakan" />}
-        <MDBInput
-          placeholder="password"
-          type="password"
-          {...register("password", { required: true })}
-        />
-        {errors.password && <ErrorMsg message="Password sudah disediakan" />}
-        <MDBBtn type="submit" style={{ color: "blue" }}>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="Email"
+            aria-describedby="emailHelp"
+            {...register("email", { required: true })}
+          />
+          {errors.email && <ErrorMsg message="Email salah" />}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+            {...register("password", { required: true })}
+          />
+          {errors.password && <ErrorMsg message="Password salah" />}
+        </div>
+
+        <button type="submit" className="btn btn-primary">
           Submit
-        </MDBBtn>
+        </button>
+
+        <div className="data mt-8">
+          <div id="emailHelp" className="form-text">
+            Username = admin@alta.com
+          </div>
+          <div id="emailHelp" className="form-text">
+            Password = admin
+          </div>
+        </div>
       </form>
-
-      <div className="text-center">
-        <p>Login diperlukan untuk React Routing</p>
-        <p>Username : admin@alta.com</p>
-        <p>Password : admin</p>
-
-        <div
-          className="d-flex justify-content-between mx-auto"
-          style={{ width: "40%" }}
-        ></div>
-      </div>
-    </MDBContainer>
+    </div>
   );
 };
 

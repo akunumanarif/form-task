@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
+
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -19,7 +21,12 @@ const Navbar = () => {
             <Link to="/done">Done</Link>
           </li>
           <li>
-            <button onClick={logout}>Logout</button>
+            <ArrowRightOnRectangleIcon
+              onClick={logout}
+              width={24}
+              height={24}
+              style={{ cursor: "pointer" }}
+            ></ArrowRightOnRectangleIcon>
           </li>
         </ul>
       </div>
