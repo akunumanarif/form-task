@@ -3,7 +3,7 @@ import "../styles/Form.css";
 import { useForm } from "react-hook-form";
 import ErrorMsg from "../components/ErrorMsg";
 
-const Form = () => {
+const Form = ({ auth }) => {
   const {
     register,
     handleSubmit,
@@ -26,6 +26,7 @@ const Form = () => {
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
+    auth(data);
     onReset();
   };
   const onReset = () => {
