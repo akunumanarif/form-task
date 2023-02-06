@@ -25,7 +25,7 @@ const Form = () => {
   ];
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    alert(`Data ${data.nama} berhasil ditambahkan`);
     onReset();
   };
   const onReset = () => {
