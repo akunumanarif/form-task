@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
 import DoneTask from "./pages/DoneTask";
 import UseLogin from "./hooks/useLogin";
 import Navbar from "./components/Navbar";
@@ -8,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
 
 import "./App.css";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   // custom hooks
@@ -16,7 +16,6 @@ function App() {
 
   const navigate = useNavigate();
   const handleLogin = (val) => {
-    if (val.email !== "admin@alta.com" && password !== "admin") return null;
     localStorage.setItem("token", "123");
     setIsLogin(true);
     navigate("/");
@@ -31,7 +30,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/done" element={<DoneTask />}></Route>
-            <Route path="*" element={<NotFound />}></Route>
+            <Route path="/404" element={<ErrorPage />}></Route>
+            <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
         </>
       ) : (

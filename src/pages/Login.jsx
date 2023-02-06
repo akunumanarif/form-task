@@ -8,44 +8,46 @@ import {
 } from "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import { useForm } from "react-hook-form";
-import useLogin from "../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
+import ErrorMsg from "../components/ErrorMsg";
 
 const Login = ({ auth }) => {
-  //const [items, setItems] = useLocalStorage("react-forms.items", []);
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
-    // setIsLogin(e);
-    navigate("/");
+    if (e.email !== "admin@alta.com" && e.password !== "admin")
+      return alert("Data tidak valid");
     auth(e);
-    //console.log(e);
+    navigate("/");
   };
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+    <MDBContainer className="p-3 my-5 d-flex flex-column w-50 justifyContent-center">
       <form onSubmit={handleSubmit(handleLogin)}>
         <MDBInput
           placeholder="email"
           type="email"
           {...register("email", { required: true })}
         />
+        {errors.email && <ErrorMsg message="Email sudah disediakan" />}
         <MDBInput
           placeholder="password"
           type="password"
           {...register("password", { required: true })}
         />
-        <button type="submit">Submit</button>
+        {errors.password && <ErrorMsg message="Password sudah disediakan" />}
+        <MDBBtn type="submit" style={{ color: "blue" }}>
+          Submit
+        </MDBBtn>
       </form>
 
       <div className="text-center">
         <p>Login diperlukan untuk React Routing</p>
-        <p>Usernam : admin@alta.com</p>
+        <p>Username : admin@alta.com</p>
         <p>Password : admin</p>
 
         <div
