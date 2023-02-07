@@ -5,6 +5,7 @@ import UseLogin from "./hooks/useLogin";
 import Navbar from "./components/Navbar";
 import { useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
+import FormRedux from "./pages/FormRedux";
 
 import "./App.css";
 import ErrorPage from "./pages/ErrorPage";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/done" element={<DoneTask />}></Route>
             <Route path="/404" element={<ErrorPage />}></Route>
+            <Route path="/form" element={<FormRedux />}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
         </>
