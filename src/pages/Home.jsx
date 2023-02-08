@@ -1,10 +1,14 @@
+//? Library
 import React from "react";
 import { useState } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
+//? Components
 import CustomForm from "../components/CustomForm";
 import EditForm from "../components/EditForm";
 import TaskList from "../components/TaskList";
-import { useNavigate } from "react-router-dom";
+//? Custom hooks
+import useLocalStorage from "../hooks/useLocalStorage";
+
+//? Styles
 
 const Home = () => {
   const [tasks, setTasks] = useLocalStorage("react-todo.tasks", []);

@@ -1,8 +1,12 @@
+//? Library
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { PowerIcon } from "@heroicons/react/24/outline";
 
-import styles from "./Navbar.module.css";
+//? Styles
+
+import styles from "../styles/modules/Navbar.module.css";
 
 const Navbar = () => {
   const logout = () => {

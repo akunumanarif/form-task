@@ -1,18 +1,21 @@
+//? Library
 import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+//? Components
 import Home from "./pages/Home";
 import DoneTask from "./pages/DoneTask";
 import About from "./pages/About";
-import UseLogin from "./hooks/useLogin";
 import Navbar from "./components/Navbar";
-import { useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
-
-import "./App.css";
 import ErrorPage from "./pages/ErrorPage";
 
-function App() {
-  // custom hooks
+//? Custom hooks
+import UseLogin from "./hooks/useLogin";
+//? Css
+import "./App.css";
 
+function App() {
   const [isLogin, setIsLogin, isReady] = UseLogin(false);
 
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // styles
-import styles from "./TaskItem.module.css";
+import styles from "../styles/modules/TaskItem.module.css";
 
 // Library imports
 

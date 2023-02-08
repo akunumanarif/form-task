@@ -2,7 +2,7 @@
 import TaskDoneItem from "./TaskDoneIem";
 
 // styles
-import styles from "./TaskList.module.css";
+import styles from "../styles/modules/TaskList.module.css";
 
 const TaskDone = ({ tasks }) => {
   return (

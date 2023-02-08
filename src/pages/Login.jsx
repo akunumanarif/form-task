@@ -1,9 +1,13 @@
+//? Library
 import React from "react";
-import { MDBContainer, MDBInput, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+//? Components
 import ErrorMsg from "../components/ErrorMsg";
+
+//? Styles
+import { MDBContainer, MDBInput, MDBBtn } from "mdb-react-ui-kit";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
 const Login = ({ auth }) => {
   const {
