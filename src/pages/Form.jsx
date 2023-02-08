@@ -1,8 +1,10 @@
+//? Library
 import React from "react";
-import "../styles/Form.css";
 import { useForm } from "react-hook-form";
+//? Component
 import ErrorMsg from "../components/ErrorMsg";
-
+//? Styles
+import "../styles/Form.css";
 const Form = () => {
   const {
     register,
