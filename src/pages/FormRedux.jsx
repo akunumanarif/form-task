@@ -9,6 +9,7 @@ import { submitUser } from "../app/feaures/userReducer";
 
 const FormRedux = () => {
   const userData = useSelector((state) => state.me.data);
+  const productData = useSelector((state) => state.product.data);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(0);
   const dispatch = useDispatch();
@@ -18,13 +19,18 @@ const FormRedux = () => {
     // console.log(email, password);
 
     dispatch(submitUser({ name: email, password: password }));
+    dispatch(addData({ item: email, price: password }));
 
     // dispatch(submitUser({name: }));
   };
+  // console.log(userData);
+  console.log(productData);
 
   return (
     <div className="form-wrapper ">
       <form onSubmit={handleRedux}>
+        <p>{productData.item}</p>
+        <p>{productData.price}</p>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email address
@@ -51,13 +57,21 @@ const FormRedux = () => {
             placeholder="price"
           />
         </div>
+
         {/* {userData} */}
-        {userData.map((d, i) => (
+
+        <p>{userData.name}</p>
+        <p>{userData.password}</p>
+
+        {/* <p>{productData.item}</p>
+        <p>{productData.price}</p> */}
+
+        {/* {userData?.map((d, i) => (
           <div key={i} style={{ color: "red", fontSize: "30px" }}>
             <p>{d.name}</p>
             <p>{d.password}</p>
           </div>
-        ))}
+        ))} */}
 
         <button type="submit" className="btn btn-primary">
           Submit

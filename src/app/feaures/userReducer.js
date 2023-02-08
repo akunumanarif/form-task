@@ -15,9 +15,9 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     submitUser: (state, action) => {
-      let cpData = [...state.data];
+      let cpData = [{ ...state.data }];
       cpData.push(action.payload);
-      state.data = cpData;
+      state.data = action.payload;
     },
   },
 });

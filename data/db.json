@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Ilham",
+      "checked": true
+    },
+    {
+      "id": 2,
+      "name": "Rafly",
+      "checked": false
+    },
+    {
+      "id": 3,
+      "name": "Arif",
+      "checked": false
+    },
+    {
+      "id": 4,
+      "name": "Irvan",
+      "checked": false
+    },
+    {
+      "id": 5,
+      "name": "Irfan",
+      "checked": false
+    },
+    {
+      "id": 6,
+      "name": "Adit",
+      "checked": false
+    },
+    {
+      "id": 7,
+      "name": "iqbal",
+      "checked": true
+    },
+    {
+      "name": "tes 8",
+      "checked": true,
+      "id": 1675766848898
+    }
+  ]
+}

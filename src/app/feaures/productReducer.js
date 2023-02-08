@@ -14,6 +14,8 @@ export const productSlice = createSlice({
   initialState,
   reducers: {
     addData: (state, action) => {
+      let cpData = [{ ...state.data }];
+      cpData.push(action.payload);
       state.data = action.payload;
     },
   },

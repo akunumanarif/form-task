@@ -3,6 +3,7 @@ import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ErrorMsg from "../components/ErrorMsg";
+import Cookies from "js-cookie";
 
 const Login = ({ auth }) => {
   const {
@@ -13,8 +14,9 @@ const Login = ({ auth }) => {
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
-    if (e.email !== "admin@alta.com" && e.password !== "admin")
-      return alert("Data tidak valid");
+    Cookies.set("token", "123");
+    // if (e.email !== "admin@alta.com" && e.password !== "admin")
+    //   return alert("Data tidak valid");
     auth(e);
     navigate("/");
   };

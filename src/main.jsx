@@ -6,17 +6,17 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-// import { persistor } from "./app/store";
+import { persistor } from "./app/store";
 import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* <PersistGate loading={null} persistor={persistor}> */}
-      <Provider store={store}>
-        <App />
-      </Provider>
-      {/* </PersistGate> */}
+      <PersistGate loading={null} persistor={persistor}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </PersistGate>
     </BrowserRouter>
   </React.StrictMode>
 );

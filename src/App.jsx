@@ -9,6 +9,10 @@ import FormRedux from "./pages/FormRedux";
 
 import "./App.css";
 import ErrorPage from "./pages/ErrorPage";
+import NameApps from "./components/mockFolder/NameApps";
+import FormAxios from "./pages/FormAxios";
+import About from "./pages/About";
+import AboutDetail from "./pages/AboutDetail";
 
 function App() {
   // custom hooks
@@ -30,9 +34,13 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/names" element={<NameApps />}></Route>
             <Route path="/done" element={<DoneTask />}></Route>
             <Route path="/404" element={<ErrorPage />}></Route>
-            <Route path="/form" element={<FormRedux />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/about/:id" element={<AboutDetail />}></Route>
+            {/* <Route path="/form" element={<FormRedux />}></Route> */}
+            <Route path="/form" element={<FormAxios />}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
         </>
