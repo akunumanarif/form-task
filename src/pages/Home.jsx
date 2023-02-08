@@ -46,9 +46,6 @@ const Home = () => {
 
   return (
     <>
-      <header className="header-container">
-        <h1 className="todo-text">Todos</h1>
-      </header>
       {isEditing && (
         <EditForm
           editedTask={editedTask}

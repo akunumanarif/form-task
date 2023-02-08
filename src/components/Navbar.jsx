@@ -11,25 +11,29 @@ const Navbar = () => {
   };
   return (
     <nav>
-      <div className="nav-wrapper">
-        <div className="navbar-title">
+      <div className={styles.navWrapper}>
+        <div className={styles.navbarTitle}>
           <ul className={styles.navbar}>
             <li>
               <Link to="/">Home</Link>
             </li>
 
             <li>
-              <Link to="/done">Done</Link>
+              <Link to="/done">Task Done</Link>
             </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <div className={styles.navbarLogout}>
+              <button onClick={logout}>
+                <PowerIcon width={24} height={24} />
+              </button>
+            </div>
           </ul>
         </div>
-        <div className="navbar-logout">
-          <ul>
-            <button onClick={logout}>
-              <PowerIcon width={24} height={24} />
-            </button>
-          </ul>
-        </div>
+      </div>
+      <div className={styles.logo}>
+        <h1 className="todo-text">Todos</h1>
       </div>
     </nav>
   );

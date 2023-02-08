@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import DoneTask from "./pages/DoneTask";
+import About from "./pages/About";
 import UseLogin from "./hooks/useLogin";
 import Navbar from "./components/Navbar";
 import { useNavigate } from "react-router-dom";
@@ -30,6 +31,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/done" element={<DoneTask />}></Route>
+            <Route path="/about" element={<About />}></Route>
             <Route path="/404" element={<ErrorPage />}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>

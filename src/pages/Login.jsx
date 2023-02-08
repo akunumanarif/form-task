@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  MDBContainer,
-  MDBInput,
-  MDBCheckbox,
-  MDBBtn,
-  MDBIcon,
-} from "mdb-react-ui-kit";
+import { MDBContainer, MDBInput, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -25,10 +19,17 @@ const Login = ({ auth }) => {
     auth(e);
     navigate("/");
   };
+
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50 justifyContent-center">
+    <MDBContainer className="p-3 mt-10 d-flex flex-column w-50 justifyContent-center alignItems-center">
       <form onSubmit={handleSubmit(handleLogin)}>
+        <img
+          src="https://www.alterra.id/wp-content/themes/alterra-wp/assets/revamp/img/logo_nav@2x.png"
+          alt="Project logo"
+          className="logo-alta"
+        />
         <MDBInput
+          className="mb-3"
           placeholder="email"
           type="email"
           {...register("email", { required: true })}
@@ -40,21 +41,19 @@ const Login = ({ auth }) => {
           {...register("password", { required: true })}
         />
         {errors.password && <ErrorMsg message="Password sudah disediakan" />}
-        <MDBBtn type="submit" style={{ color: "blue" }}>
+        <MDBBtn
+          className="mt-3 mx-auto"
+          type="submit"
+          style={{ color: "blue" }}
+        >
           Submit
         </MDBBtn>
+        <div className="text-start mt-3 text-secondary">
+          <p className="color-grey">Login diperlukan untuk React Routing</p>
+          <p>Username : admin@alta.com</p>
+          <p>Password : admin</p>
+        </div>
       </form>
-
-      <div className="text-center">
-        <p>Login diperlukan untuk React Routing</p>
-        <p>Username : admin@alta.com</p>
-        <p>Password : admin</p>
-
-        <div
-          className="d-flex justify-content-between mx-auto"
-          style={{ width: "40%" }}
-        ></div>
-      </div>
     </MDBContainer>
   );
 };
