@@ -31,7 +31,7 @@ const AboutDetail = () => {
     fetchData();
   }, []);
 
-  console.log(response);
+  //console.log(response?.todos[0].title);
 
   return (
     <div className="form-wrapper ">
@@ -56,6 +56,10 @@ const AboutDetail = () => {
               <p>{response.data.email}</p>
             </div>
           )} */}
+
+          {response?.todos.map((task) => {
+            return <p key={task.id}>{task.title}</p>;
+          })}
         </div>
       </form>
     </div>

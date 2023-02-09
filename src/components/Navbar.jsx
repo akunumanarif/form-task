@@ -21,6 +21,9 @@ const Navbar = () => {
             <Link to="/done">Done</Link>
           </li>
           <li>
+            <Link to="/aboutdetail">About</Link>
+          </li>
+          <li>
             <ArrowRightOnRectangleIcon
               onClick={logout}
               width={24}

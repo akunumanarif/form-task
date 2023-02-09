@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import productSlice from "./feaures/productReducer";
 import userSlice from "./feaures/userReducer";
+import todosSlice from "./feaures/todoReducer";
 
 import storage from "redux-persist/lib/storage";
 import {
@@ -23,6 +24,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   me: userSlice,
   product: productSlice,
+  todos: todosSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

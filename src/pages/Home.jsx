@@ -43,6 +43,8 @@ const Home = () => {
     setPreviousFocusEl(document.activeElement);
   };
 
+  // console.log(tasks);
+
   return (
     <>
       <header className="header-container">
