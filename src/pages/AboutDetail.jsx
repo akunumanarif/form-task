@@ -15,7 +15,8 @@ const AboutDetail = () => {
   useEffect(() => {
     const fetchData = () => {
       axios
-        .get(`https://reqres.in/api/users/${id}`)
+        // .get(`https://reqres.in/api/users/${id}`)
+        .get(`https://native-guppy-13.hasura.app/api/rest/alterra/tasks`)
         .then((res) => {
           setResponse(res.data);
         })
@@ -39,7 +40,7 @@ const AboutDetail = () => {
         <div className="App">
           <h1>Posts</h1>
           {/* <div>{data && <p>{data.id}</p>}</div> */}
-          {loading ? (
+          {/* {loading ? (
             <p>loading...</p>
           ) : (
             <div>
@@ -54,7 +55,7 @@ const AboutDetail = () => {
               </p>
               <p>{response.data.email}</p>
             </div>
-          )}
+          )} */}
         </div>
       </form>
     </div>

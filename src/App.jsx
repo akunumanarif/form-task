@@ -38,7 +38,7 @@ function App() {
             <Route path="/done" element={<DoneTask />}></Route>
             <Route path="/404" element={<ErrorPage />}></Route>
             <Route path="/about" element={<About />}></Route>
-            <Route path="/about/:id" element={<AboutDetail />}></Route>
+            <Route path="/aboutdetail" element={<AboutDetail />}></Route>
             {/* <Route path="/form" element={<FormRedux />}></Route> */}
             <Route path="/form" element={<FormAxios />}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
