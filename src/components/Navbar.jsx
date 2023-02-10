@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
+import { useDispatch } from "react-redux";
+import { logout } from "../app/feaures/userReducer";
+import Cookies from "js-cookie";
 
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const logout = () => {
-    localStorage.removeItem("token");
+  const dispatch = useDispatch();
+  const logMeOut = () => {
+    dispatch(logout());
+    Cookies.remove("isLoggedIn");
+
     window.location.reload();
   };
   return (
@@ -25,7 +31,7 @@ const Navbar = () => {
           </li>
           <li>
             <ArrowRightOnRectangleIcon
-              onClick={logout}
+              onClick={logMeOut}
               width={24}
               height={24}
               style={{ cursor: "pointer" }}

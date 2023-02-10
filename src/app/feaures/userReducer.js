@@ -1,26 +1,47 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAction } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
 const initialState = {
-  data: [
-    {
-      name: "tes",
-      password: "123",
-    },
-  ],
+  isLoggedIn: !!Cookies.get("isLoggedIn"),
 };
 
-export const userSlice = createSlice({
-  name: "me",
+const authSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
-    submitUser: (state, action) => {
-      let cpData = [{ ...state.data }];
-      cpData.push(action.payload);
-      state.data = action.payload;
+    login: (state) => {
+      state.isLoggedIn = true;
+      Cookies.set("isLoggedIn", true, { expires: 1 });
+    },
+    logout: (state) => {
+      state.isLoggedIn = false;
+      Cookies.remove("isLoggedIn");
     },
   },
 });
 
-export const { submitUser } = userSlice.actions;
+export const { login, logout } = authSlice.actions;
 
-export default userSlice.reducer;
+export default authSlice.reducer;
+
+// import { createSlice } from "@reduxjs/toolkit";
+
+// const initialState = {
+//   data: [],
+// };
+
+// export const userSlice = createSlice({
+//   name: "me",
+//   initialState,
+//   reducers: {
+//     submitUser: (state, action) => {
+//       let cpData = [{ ...state.data }];
+//       cpData.push(action.payload);
+//       state.data = cpData;
+//     },
+//   },
+// });
+
+// export const { submitUser } = userSlice.actions;
+
+// export default userSlice.reducer;

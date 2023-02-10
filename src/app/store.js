@@ -17,11 +17,11 @@ import {
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["me", "product"],
+  whitelist: ["auth", "product"],
 };
 
 const rootReducer = combineReducers({
-  me: userSlice,
+  auth: userSlice,
   todos: todosSlice,
 });
 

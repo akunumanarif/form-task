@@ -1,25 +1,29 @@
 import React from "react";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import ErrorMsg from "../components/ErrorMsg";
+import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
+import ErrorMsg from "../components/ErrorMsg";
+import { login } from "../app/feaures/userReducer";
 
-const Login = ({ auth }) => {
+const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state);
 
   const handleLogin = (e) => {
-    Cookies.set("token", "123");
-    // if (e.email !== "admin@alta.com" && e.password !== "admin")
-    //   return alert("Data tidak valid");
-    auth(e);
+    const { email, password } = e;
+    const user = { email, password };
+    dispatch(login(user));
+    Cookies.set("user", JSON.stringify(user));
     navigate("/");
   };
+
   return (
     <div className="form-wrapper ">
       <form onSubmit={handleSubmit(handleLogin)}>
@@ -54,15 +58,6 @@ const Login = ({ auth }) => {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-
-        <div className="data mt-8">
-          <div id="emailHelp" className="form-text">
-            Username = admin@alta.com
-          </div>
-          <div id="emailHelp" className="form-text">
-            Password = admin
-          </div>
-        </div>
       </form>
     </div>
   );
