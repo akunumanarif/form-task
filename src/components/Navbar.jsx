@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
+import { PowerIcon } from "@heroicons/react/24/solid";
 import { useDispatch } from "react-redux";
 import { logout } from "../app/feaures/userReducer";
 import Cookies from "js-cookie";
 
-import styles from "./Navbar.module.css";
+import styles from "../styles/module/Navbar.module.css";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -17,27 +17,27 @@ const Navbar = () => {
   };
   return (
     <nav>
-      <div>
-        <ul className={styles.navbar}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+      <div className={styles.roots}>
+        <div className={styles.wrapper}>
+          <h1 className="todo-text">Todos</h1>
+        </div>
+        <div className={styles.wrapper2}>
+          <ul className={styles.navbar}>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
 
-          <li>
-            <Link to="/done">Done</Link>
-          </li>
-          <li>
-            <Link to="/aboutdetail">About</Link>
-          </li>
-          <li>
-            <ArrowRightOnRectangleIcon
+            <li>
+              <Link to="/done">Done</Link>
+            </li>
+            <PowerIcon
               onClick={logMeOut}
               width={24}
               height={24}
-              style={{ cursor: "pointer" }}
-            ></ArrowRightOnRectangleIcon>
-          </li>
-        </ul>
+              style={{ cursor: "pointer", color: "white" }}
+            ></PowerIcon>
+          </ul>
+        </div>
       </div>
     </nav>
   );

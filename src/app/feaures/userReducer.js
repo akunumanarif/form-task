@@ -23,25 +23,3 @@ const authSlice = createSlice({
 export const { login, logout } = authSlice.actions;
 
 export default authSlice.reducer;
-
-// import { createSlice } from "@reduxjs/toolkit";
-
-// const initialState = {
-//   data: [],
-// };
-
-// export const userSlice = createSlice({
-//   name: "me",
-//   initialState,
-//   reducers: {
-//     submitUser: (state, action) => {
-//       let cpData = [{ ...state.data }];
-//       cpData.push(action.payload);
-//       state.data = cpData;
-//     },
-//   },
-// });
-
-// export const { submitUser } = userSlice.actions;
-
-// export default userSlice.reducer;

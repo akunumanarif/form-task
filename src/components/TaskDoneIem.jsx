@@ -1,5 +1,5 @@
 // styles
-import styles from "./TaskItem.module.css";
+import styles from "../styles/module/TaskItem.module.css";
 
 // Library imports
 

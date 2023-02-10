@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import axios from "axios";
 
+const baseURL = "https://native-guppy-13.hasura.app/api/rest/alterra/tasks";
+
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
-  const response = await axios.get(
-    "https://native-guppy-13.hasura.app/api/rest/alterra/tasks"
-  );
+  const response = await axios.get(baseURL);
 
   return response.data.todos;
 });
@@ -12,12 +13,9 @@ export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
 export const addTodoToAPI = (todo) => {
   return async (dispatch) => {
     try {
-      await axios.post(
-        "https://native-guppy-13.hasura.app/api/rest/alterra/tasks",
-        {
-          title: todo.title,
-        }
-      );
+      await axios.post(baseURL, {
+        title: todo.title,
+      });
       dispatch(todosSlice.actions.addTodo(todo));
     } catch (error) {
       console.error(error);
@@ -28,9 +26,7 @@ export const addTodoToAPI = (todo) => {
 export const deleteTodoFromAPI = (id) => {
   return async (dispatch) => {
     try {
-      await axios.delete(
-        `https://native-guppy-13.hasura.app/api/rest/alterra/tasks/${id}`
-      );
+      await axios.delete(`${baseURL}/${id}`);
       dispatch(todosSlice.actions.deleteTodo(id));
     } catch (error) {
       console.error(error);
@@ -41,12 +37,9 @@ export const deleteTodoFromAPI = (id) => {
 export const updateTodoNameAPI = (id, title) => {
   return async (dispatch) => {
     try {
-      await axios.put(
-        `https://native-guppy-13.hasura.app/api/rest/alterra/tasks/${id}`,
-        {
-          title,
-        }
-      );
+      await axios.put(`${baseURL}/${id}`, {
+        title,
+      });
       dispatch(todosSlice.actions.updateTodo({ id, title }));
     } catch (error) {
       console.error(error);
@@ -56,15 +49,12 @@ export const updateTodoNameAPI = (id, title) => {
 export const updateTodoCompleteAPI = (id, completed) => {
   return async (dispatch) => {
     try {
-      await axios.put(
-        `https://native-guppy-13.hasura.app/api/rest/alterra/tasks/completed/${id}`,
-        {
-          completed,
-        }
-      );
+      await axios.put(`${baseURL}/completed/${id}`, {
+        completed,
+      });
       dispatch(todosSlice.actions.updateCompleted({ id, completed }));
     } catch (error) {
-      console.error(error.config);
+      console.error(error);
     }
   };
 };
@@ -135,6 +125,13 @@ const todosSlice = createSlice({
       const todoIndex = state.todos.findIndex((todo) => todo.id === id);
       if (todoIndex >= 0) {
         state.todos[todoIndex].title = title;
+      }
+    },
+    [updateTodoCompleteAPI.fulfilled]: (state, action) => {
+      const { id, completed } = action.payload;
+      const todoIndex = state.todos.findIndex((todo) => todo.id === id);
+      if (todoIndex >= 0) {
+        state.todos[todoIndex].title = !completed;
       }
     },
   },

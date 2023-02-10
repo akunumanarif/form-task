@@ -3,13 +3,36 @@ nav {
     align-items: center;
     justify-content: space-between;
     background: #1b2430;
-    padding: 20px 80px;
+    padding: 20px 40px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  }
+  
+  .roots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+  }
+  .wrapper2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
   }
   .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-basis: auto;
+    flex-grow: 1;
   }
   
   .navbar li {

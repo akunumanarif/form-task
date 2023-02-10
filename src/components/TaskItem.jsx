@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // styles
-import styles from "./TaskItem.module.css";
+import styles from "../styles/module/TaskItem.module.css";
 
 // Library imports
 import { CheckIcon } from "@heroicons/react/24/outline";

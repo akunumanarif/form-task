@@ -2,7 +2,7 @@
 import TaskItem from "./TaskItem";
 
 // styles
-import styles from "./TaskList.module.css";
+import styles from "../styles/module/TaskList.module.css";
 
 const TaskList = ({ tasks, deleteTask, toggleTask, enterEditMode }) => {
   return (
