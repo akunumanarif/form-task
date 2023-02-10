@@ -7,7 +7,6 @@ const initialState = {
       password: "123",
     },
   ],
-  //data: "Helooooooooooooooo",
 };
 
 export const userSlice = createSlice({

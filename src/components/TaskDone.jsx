@@ -9,7 +9,7 @@ const TaskDone = ({ tasks }) => {
     <ul className={styles.tasks}>
       {tasks
         // .sort((a, b) => b.id - a.id)
-        .filter((task) => task.checked)
+        .filter((task) => task.completed)
         .map((task) => (
           <TaskDoneItem key={task.id} task={task} />
         ))}

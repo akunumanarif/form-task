@@ -4,10 +4,11 @@ import CustomForm from "../components/CustomForm";
 import EditForm from "../components/EditForm";
 import TaskList from "../components/TaskList";
 import {
-  addTodo,
+  addTodoToAPI,
   fetchTodos,
-  updateTodo,
-  deleteTodo,
+  updateTodoNameAPI,
+  updateTodoCompleteAPI,
+  deleteTodoFromAPI,
 } from "../app/feaures/todoReducer";
 
 const TodoList = () => {
@@ -19,6 +20,8 @@ const TodoList = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTask, setEditedTask] = useState({});
   const [previousFocusEl, setPreviousFocusEl] = useState(null);
+
+  // console.log(todos);
 
   useEffect(() => {
     dispatch(fetchTodos());
@@ -33,18 +36,21 @@ const TodoList = () => {
   }
 
   const addTask = (todo) => {
-    dispatch(addTodo(todo));
+    dispatch(addTodoToAPI(todo));
   };
 
   const deleteTask = (id) => {
-    dispatch(deleteTodo(id));
+    dispatch(deleteTodoFromAPI(id));
   };
 
   const updateTask = (todo) => {
-    dispatch(updateTodo(todo.id, todo.title));
+    dispatch(updateTodoNameAPI(todo.id, todo.title));
     closeEditMode();
   };
 
+  const toggleTask = (id, completed) => {
+    dispatch(updateTodoCompleteAPI(id, !completed));
+  };
   const closeEditMode = () => {
     setIsEditing(false);
     setEditedTask(null);
@@ -75,6 +81,7 @@ const TodoList = () => {
         <TaskList
           tasks={todos}
           deleteTask={deleteTask}
+          toggleTask={toggleTask}
           enterEditMode={enterEditMode}
         />
       )}

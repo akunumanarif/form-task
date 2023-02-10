@@ -1,5 +1,4 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import productSlice from "./feaures/productReducer";
 import userSlice from "./feaures/userReducer";
 import todosSlice from "./feaures/todoReducer";
 
@@ -23,7 +22,6 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   me: userSlice,
-  product: productSlice,
   todos: todosSlice,
 });
 
@@ -41,12 +39,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// export const store = configureStore({
-//   reducer: {
-//     product: productSlice,
-//     me: userSlice,
-//   },
-// });
-
-// export default store;

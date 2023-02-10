@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 // styles
 import styles from "./TaskItem.module.css";
 
@@ -10,8 +8,7 @@ const TaskDoneItem = ({ task }) => {
     <li className={styles.task}>
       <div className={styles["task-group"]}>
         <label htmlFor={task.id} className={styles.label}>
-          {task.checked ? task.name : null}
-          {/* {task.name} */}
+          {task.completed ? task.title : null}
         </label>
       </div>
     </li>

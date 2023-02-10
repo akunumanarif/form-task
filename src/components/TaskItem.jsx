@@ -13,7 +13,7 @@ const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
 
   const handleCheckboxChange = (e) => {
     setIsChecked(!isChecked);
-    toggleTask(task.id);
+    toggleTask(task.id, isChecked);
   };
 
   return (

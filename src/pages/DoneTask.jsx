@@ -1,11 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import TaskDone from "../components/TaskDone";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 const DoneTask = ({}) => {
-  const [tasks, setTasks] = useLocalStorage("react-todo.tasks", []);
+  const todos = useSelector((state) => state.todos.todos);
 
-  return <>{tasks && <TaskDone tasks={tasks} />}</>;
+  return <>{todos && <TaskDone tasks={todos} />}</>;
 };
 
 export default DoneTask;
