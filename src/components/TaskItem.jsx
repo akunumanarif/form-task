@@ -1,12 +1,11 @@
-import { useState } from "react";
-
-// styles
-import styles from "../styles/module/TaskItem.module.css";
-
 // Library imports
+import { useState } from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
+
+// styles
+import styles from "../styles/module/TaskItem.module.css";
 
 const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
   const [isChecked, setIsChecked] = useState(task.completed);

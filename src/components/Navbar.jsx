@@ -1,3 +1,5 @@
+//? Library
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { PowerIcon } from "@heroicons/react/24/solid";
@@ -5,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../app/feaures/userReducer";
 import Cookies from "js-cookie";
 
+// Styles
 import styles from "../styles/module/Navbar.module.css";
 
 const Navbar = () => {

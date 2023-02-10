@@ -1,9 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+//? Library
 
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseURL = "https://native-guppy-13.hasura.app/api/rest/alterra/tasks";
+//? Setup .ENV di CRA dan Vite ternyata berbeda
+const baseURL = import.meta.env.VITE_APP_HASURA_API_ENDPOINT;
 
+//? MethodDeclare
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
   const response = await axios.get(baseURL);
 
